@@ -15,25 +15,29 @@ const nodemailer = require("nodemailer");
 
 // MAILING OPTION
 const myOAuth2Client = new OAuth2(
-  process.env.CLIENT_ID,
-  process.env.CLIENT_SECRET,
+  "975964328766-lb0a57ub29amqfq90spg2lk6bqiu0kvv.apps.googleusercontent.com",
+  "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",
   "https://developers.google.com/oauthplayground"
 );
 
 myOAuth2Client.setCredentials({
-  refresh_token: process.env.REFRESH_TOKEN,
+  refresh_token:
+    "1//04dGSAQY5OqrKCgYIARAAGAQSNwF-L9IrJcjGmHEHigJIpzI21EVbMZAmWnXXME75db0mVI5nHMsEzpmt7z6XHBcKqfYWRoLUGxQ",
 });
 
-const myAccessToken = process.env.ACCESS_TOKEN;
+const myAccessToken =
+  "ya29.A0AVA9y1vk2Zd4RmntWny2kquhZGEbH0oV9UMphltqpEUJiuK0DnUXdY9WWepLDMrLG2NwtrPACQwprA009-RKpt1CsZKe8kJgIcwQ32rIvk3useclMKYhQBHqxRs_zYGizK74ThGeTYIV0uhBHvXmtE43z8m3YUNnWUtBVEFTQVRBU0ZRRTY1ZHI4a0NwTFAtcnJYMjl1MFFDcXNEejhQZw0163";
 
 const transport = nodemailer.createTransport({
   service: "gmail",
   auth: {
     type: "OAuth2",
-    user: process.env.USER, //your gmail account you used to set the project up in google cloud console"
-    clientId: process.env.CLIENT_ID,
-    clientSecret: process.env.CLIENT_SECRET,
-    refreshToken: process.env.REFRESH_TOKEN,
+    user: "etosin70@gmail.com", //your gmail account you used to set the project up in google cloud console"
+    clientId:
+      "975964328766-lb0a57ub29amqfq90spg2lk6bqiu0kvv.apps.googleusercontent.com",
+    clientSecret: "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",
+    refreshToken:
+      "1//04dGSAQY5OqrKCgYIARAAGAQSNwF-L9IrJcjGmHEHigJIpzI21EVbMZAmWnXXME75db0mVI5nHMsEzpmt7z6XHBcKqfYWRoLUGxQ",
     accessToken: myAccessToken, //access token variable we defined earlier
   },
 });
@@ -47,7 +51,7 @@ app.post("/send-email", async (req, res) => {
 
   const mailOptions = {
     to: email,
-    from: process.env.USER,
+    from: "etosin70@gmail.com",
     subject: "Automanted Email",
     html: `<h1>This is an automated email send with nodemailer in nodejs. Hope you are good</h1>.`,
   };
