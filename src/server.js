@@ -1,7 +1,8 @@
 const http = require("http");
 const app = require("./app");
+require("dotenv").config();
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT;
 
 //pass express app middleware in http server for easy routing
 const server = http.createServer(app);
